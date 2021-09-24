@@ -4,6 +4,9 @@ I'm Jeremy Webster, and I developed this website to show off my projects, in a l
 
 The 3D aspects were implemented with ThreeJS, this module was utilized to allow for importation of models and materials freely into JavaScript without any unnecessary overhead allowing for easily implementation of some awesome animation.
 
+You can view the live static website hosted by Github, here:<br>
+https://jeremy-webster.github.io/portfolio/
+
 ## Developed With
 - [Vue.js Cli](https://cli.vuejs.org/)
 - [Tailwind CSS 2.2](https://tailwindcss.com/)
