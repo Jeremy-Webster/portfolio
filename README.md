@@ -19,12 +19,6 @@ Modules Utilized:
 Tools/Software:
 - [PHPStorm](https://www.jetbrains.com/phpstorm/)
 
-## Project Setup
-```
-npm install
-npm run serve
-```
-
 ## Attributions
 Thanks to [Lavinia Melo](https://dribbble.com/laviniamelo), for providing the material design.
 
