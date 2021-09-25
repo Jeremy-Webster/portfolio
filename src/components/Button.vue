@@ -1,5 +1,5 @@
 <template>
-  <button class="px-12 py-2 rounded-md font-medium transition transform hover:scale-105" :class="[glow ? 'border-glow' : 'border-green-300', themes[theme]]">{{ text }}</button>
+    <a :href="href" v-smooth-scroll class="inline-block cursor-pointer px-12 py-2 rounded-md font-medium transition transform hover:scale-105" :class="[glow ? 'border-glow' : 'border-green-300', themes[theme]]">{{ text }}</a>
 </template>
 
 <script>
@@ -11,7 +11,8 @@ export default {
       type: String,
       default: 'primary'
     },
-    glow: String
+    glow: String,
+    href: String
   },
   data() {
     return {

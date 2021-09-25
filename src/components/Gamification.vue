@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import onIntersect from '../mixins/onIntersect';
+import onIntersect from '@/mixins/onIntersect';
 import * as Three from 'three'
 
 export default {

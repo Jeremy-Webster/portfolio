@@ -12,6 +12,7 @@ const icons = {
   linkedin: require('@/assets/icons/icon_linkedin.svg'),
   github: require('@/assets/icons/icon_github.svg'),
   menu: require('@/assets/icons/icon_menu.svg'),
+  preview: require('@/assets/icons/icon_preview.svg'),
 }
 
 export default {

@@ -2,27 +2,20 @@
   <div class="fixed z-30 flex justify-center w-full transition-all duration-300 items-center" :class="[scrollY > 1 ? 'bg-black-alpha h-20 shadow-xl' : 'h-32']" v-intersect="intersect">
     <div class="w-full px-6 md:px-16 max-w-5xl h-16 flex justify-between items-center">
       <div>
-        <a href="/">
+        <a @click="scrollToTop()" class="cursor-pointer">
           <h2 class="text-2xl font-bold text-white whitespace-nowrap tracking-tighter">
           <span class="text-green-400 text-glow">&#60;/</span>
-          Jeremy Webster
+          {{ personalData.fullName }}
           <span class="text-green-400 text-glow">></span></h2>
         </a>
       </div>
       <div class="text-xl text-gray-500 tracking-tight">
-
         <div class="hidden sm:flex space-x-12">
-          <div class="transition duration-500 transform" :class="[isVisible ? 'translate-y-0 opacity-1' : '-translate-y-full opacity-0']">
-            <a href="/" class="text-gray-300 transition hover:text-gray-100 transform hover:scale-105">
-              Home
-              <div class="absolute w-8 h-1 bg-green-300 rounded-xl opacity-70 mt-1"></div>
+          <div v-for="(section, index) in sections" :key="index" class="transition duration-500 transform" :style="{ transitionDelay: index + 'ms' }" :class="[isVisible ? 'translate-y-0 opacity-1' : '-translate-y-full opacity-0']">
+            <a :href="section.link" v-smooth-scroll @click="selectedSection = index" class="text-gray-300 transition hover:text-gray-100 transform hover:scale-105">
+              {{ section.text }}
+              <div v-if="selectedSection === index" class="absolute w-8 h-1 bg-green-300 rounded-xl opacity-70 mt-1"></div>
             </a>
-          </div>
-          <div class="transition duration-500 delay-200 transform" :class="[isVisible ? 'translate-y-0 opacity-1' : '-translate-y-full opacity-0']">
-            <a href="#about" class="transition hover:text-gray-100 transform hover:scale-105">About</a>
-          </div>
-          <div class="transition duration-500 delay-500 transform" :class="[isVisible ? 'translate-y-0 opacity-1' : '-translate-y-full opacity-0']">
-            <a href="/contact" class="transition hover:text-gray-100 transform hover:scale-105">Contact</a>
           </div>
         </div>
 
@@ -35,8 +28,10 @@
 </template>
 
 <script>
-import onIntersect from '../mixins/onIntersect';
+import onIntersect from '@/mixins/onIntersect';
 import SVGIcon from "@/components/SVGIcon";
+
+import PersonalJSON from "@/assets/data/personal.json";
 
 export default {
   name: 'Menu',
@@ -46,12 +41,27 @@ export default {
   },
   data() {
     return {
-      scrollY: null
+      personalData: PersonalJSON,
+      sections: [
+        { text: "About", link: "#about" },
+        { text: "Projects", link: "#projects" },
+        { text: "Contact", link: "#contact" },
+      ],
+      scrollY: null,
+      selectedSection: 0
     }
   },
   methods: {
     handleScroll() {
       this.scrollY = window.scrollY || window.scrollTop
+    },
+    scrollToTop() {
+      if (window.location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      } else {
+        window.location.href = '/';
+      }
     }
   },
   created() {
