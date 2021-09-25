@@ -13,6 +13,6 @@ git init
 git add -A
 git commit -m 'New Deployment'
 
-git push -f https://github.com/Jeremy-Webster/portfolio.git master:gh-pages
+git push -f https://github.com/Jeremy-Webster/portfolio.git master:site
 
 cd -
