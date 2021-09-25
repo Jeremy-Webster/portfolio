@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # abort on errors
-set -e
+# set -e
 
 # build
 npm run build
@@ -13,6 +13,6 @@ git init
 git add -A
 git commit -m 'New Deployment'
 
-git push -f git@github.com:Jeremy-Webster/portfolio.git master:gh-pages
+git push -f https://github.com/Jeremy-Webster/portfolio.git master:gh-pages
 
 cd -
